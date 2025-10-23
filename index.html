@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Tools & Converter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-file-pdf"></i>
+            <span>PDF Master</span>
+        </div>
+        <div class="nav-links">
+            <a href="#tools">Tools</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Landing Page -->
+    <div id="landingPage">
+        <div class="contact-section" style="flex-direction: column; justify-content: center; align-items: center;">
+            <h2 class="contact-title" style="font-size: 3rem; margin-bottom: 2rem;">Welcome to PDF Master by <u style="color: red;">piyush</u> </h2>
+                        
+            <div class="social-container">
+                <div class="social-card">
+                    <i class="fab fa-instagram social-icon instagram"></i>
+                    <h3>Instagram</h3>
+                    <a href="https://www.instagram.com/piyush_kadam96k?igsh=MXZlY3J1a3ZuOHNj" class="social-button" target="_blank">
+                        <i class="fab fa-instagram"></i> Follow Us
+                    </a>
+                </div>
+                
+                <div class="social-card">
+                    <i class="fab fa-github social-icon github"></i>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/piyushkadam96k" class="social-button" target="_blank">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+                
+                <div class="social-card">
+                    <i class="fas fa-envelope social-icon gmail"></i>
+                    <h3>Gmail</h3>
+                    <a href="mailto:kadamamit462@gmail.com" class="social-button">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Ready to transform your PDFs?</h3>
+                <button class="button" onclick="showToolsPage()" style="padding: 1rem 2rem; font-size: 1.2rem;">
+                    <i class="fas fa-play-circle"></i> Click and Use Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tools Page -->
+    <div id="toolsPage" style="display: none;">
+        <!-- Header Section -->
+               <!-- Tools Grid Section -->
+        <div class="tools-container" id="tools">
+            <div class="tools-grid">
+                <!-- Organize PDF Section -->
+                <div class="tool-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-folder-open"></i>
+                        Organize PDF
+                    </h2>
+                    <div class="tool-item" onclick="openTool('mergePdf')">
+                        <i class="fas fa-object-group tool-icon"></i>
+                        Merge PDF
+                    </div>
+                    <div class="tool-item" onclick="openTool('splitPdf')">
+                        <i class="fas fa-cut tool-icon"></i>
+                        Split PDF
+                    </div>
+                    <div class="tool-item" onclick="openTool('removePages')">
+                        <i class="fas fa-trash-alt tool-icon"></i>
+                        Remove Pages
+                    </div>
+                    <div class="tool-item" onclick="openTool('extractPages')">
+                        <i class="fas fa-copy tool-icon"></i>
+                        Extract Pages
+                    </div>
+                </div>
+
+                <!-- Convert to PDF Section -->
+                <div class="tool-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-file-pdf"></i>
+                        Convert to PDF
+                    </h2>
+                    <div class="tool-item" onclick="openTool('jpgToPdf')">
+                        <i class="fas fa-image tool-icon"></i>
+                        JPG to PDF
+                    </div>
+                    <div class="tool-item" onclick="openTool('wordToPdf')">
+                        <i class="fas fa-file-word tool-icon"></i>
+                        WORD to PDF
+                    </div>
+                    <div class="tool-item" onclick="openTool('pptToPdf')">
+                        <i class="fas fa-file-powerpoint tool-icon"></i>
+                        POWERPOINT to PDF
+                    </div>
+                    <div class="tool-item" onclick="openTool('excelToPdf')">
+                        <i class="fas fa-file-excel tool-icon"></i>
+                        EXCEL to PDF
+                    </div>
+                </div>
+
+                <!-- Convert from PDF Section -->
+                <div class="tool-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-exchange-alt"></i>
+                        Convert from PDF
+                    </h2>
+                    <div class="tool-item" onclick="openTool('pdfToJpg')">
+                        <i class="fas fa-image tool-icon"></i>
+                        PDF to JPG
+                    </div>
+                    <div class="tool-item" onclick="openTool('pdfToWord')">
+                        <i class="fas fa-file-word tool-icon"></i>
+                        PDF to WORD
+                    </div>
+                    <div class="tool-item" onclick="openTool('pdfToPpt')">
+                        <i class="fas fa-file-powerpoint tool-icon"></i>
+                        PDF to POWERPOINT
+                    </div>
+                    <div class="tool-item" onclick="openTool('pdfToExcel')">
+                        <i class="fas fa-file-excel tool-icon"></i>
+                        PDF to EXCEL
+                    </div>
+                </div>
+
+                <!-- Edit PDF Section -->
+                <div class="tool-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-edit"></i>
+                        Edit PDF
+                    </h2>
+                    <div class="tool-item" onclick="openTool('rotatePdf')">
+                        <i class="fas fa-redo tool-icon"></i>
+                        Rotate PDF
+                    </div>
+                    <div class="tool-item" onclick="openTool('addPageNumbers')">
+                        <i class="fas fa-list-ol tool-icon"></i>
+                        Add Page Numbers
+                    </div>
+                    <div class="tool-item" onclick="openTool('addWatermark')">
+                        <i class="fas fa-tint tool-icon"></i>
+                        Add Watermark
+                    </div>
+                    <div class="tool-item" onclick="openTool('cropPdf')">
+                        <i class="fas fa-crop tool-icon"></i>
+                        Crop PDF
+                    </div>
+                </div>
+
+                <!-- Additional Tools Section -->
+                <div class="tool-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-tools"></i>
+                        Additional Tools
+                    </h2>
+                    <div class="tool-item" onclick="openTool('compressPdf')">
+                        <i class="fas fa-compress-arrows-alt tool-icon"></i>
+                        Compress PDF
+                    </div>
+                    <div class="tool-item" onclick="openTool('protectPdf')">
+                        <i class="fas fa-lock tool-icon"></i>
+                        Protect PDF
+                    </div>
+                    <div class="tool-item" onclick="openTool('unlockPdf')">
+                        <i class="fas fa-unlock tool-icon"></i>
+                        Unlock PDF
+                    </div>
+                    <div class="tool-item" onclick="openTool('repairPdf')">
+                        <i class="fas fa-wrench tool-icon"></i>
+                        Repair PDF
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="toolModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle" style="margin-bottom: 1.5rem; color: var(--primary-color);"></h2>
+            <div id="modalContent">
+                <div class="file-input-container" onclick="document.getElementById('fileInput').click()">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <p>Click to upload or drag and drop files here</p>
+                    <input type="file" id="fileInput" class="file-input" multiple>
+                </div>
+                <div id="fileInfo" style="margin: 10px 0; font-weight: 500;"></div>
+                <button class="button" id="processButton" disabled>
+                    <i class="fas fa-cog"></i>
+                    Process
+                </button>
+                <div class="progress-bar">
+                    <div id="progress" class="progress"></div>
+                </div>
+                <div id="preview" class="preview"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- File History Modal -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeHistoryModal()">&times;</span>
+            <h2 style="margin-bottom: 1.5rem; color: var(--primary-color);">File History</h2>
+            <div class="history-controls">
+                <button class="button" onclick="clearHistory()">
+                    <i class="fas fa-trash-alt"></i> Clear History
+                </button>
+            </div>
+            <div id="historyList" class="history-list"></div>
+        </div>
+    </div>
+
+    <!-- Tools Information Page -->
+    <div id="toolsInfoPage" style="display: none;">
+        <div class="header">
+            <h1>PDF Tools Information</h1>
+            <p>Detailed information about all our PDF tools and their features</p>
+        </div>
+
+        <div class="tools-container">
+            <div class="tools-info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem;">
+                <!-- Organize PDF Tools -->
+                <div class="tool-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-folder-open"></i>
+                        Organize PDF Tools
+                    </h2>
+                    <div class="tool-info-card">
+                        <h3><i class="fas fa-object-group"></i> Merge PDF</h3>
+                        <p>Combine multiple PDF files into a single document.</p>
+                        <ul>
+                            <li>Supports multiple PDF files</li>
+                            <li>Maintains original formatting</li>
+                            <li>Quick processing</li>
+                            <li>No file size limitation</li>
+                        </ul>
+                    </div>
+                    <div class="tool-info-card">
+                        <h3><i class="fas fa-cut"></i> Split PDF</h3>
+                        <p>Divide a PDF document into separate files by pages.</p>
+                        <ul>
+                            <li>Split by page numbers</li>
+                            <li>Extract specific pages</li>
+                            <li>Create individual files</li>
+                            <li>Preserve PDF quality</li>
+                        </ul>
+                    </div>
+                    <div class="tool-info-card">
+                        <h3><i class="fas fa-trash-alt"></i> Remove Pages</h3>
+                        <p>Delete unwanted pages from your PDF document.</p>
+                        <ul>
+                            <li>Select multiple pages</li>
+                            <li>Preview before removal</li>
+                            <li>Quick deletion process</li>
+                            <li>Original file backup</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Convert to PDF Tools -->
+                <div class="tool-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-file-pdf"></i>
+                        Convert to PDF Tools
+                    </h2>
+                    <div class="tool-info-card">
+                        <h3><i class="fas fa-image"></i> JPG to PDF</h3>
+                        <p>Convert image files to PDF format.</p>
+                        <ul>
+                            <li>Supports JPG, PNG formats</li>
+                            <li>Maintains image quality</li>
+                            <li>Multiple images to single PDF</li>
+                            <li>Custom page sizing</li>
+                        </ul>
+                    </div>
+                    <div class="tool-info-card">
+                        <h3><i class="fas fa-file-word"></i> WORD to PDF</h3>
+                        <p>Convert Word documents to PDF format.</p>
+                        <ul>
+                            <li>Preserves formatting</li>
+                            <li>Maintains fonts and styles</li>
+                            <li>Fast conversion</li>
+                            <li>High-quality output</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Convert from PDF Tools -->
+                <div class="tool-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-exchange-alt"></i>
+                        Convert from PDF Tools
+                    </h2>
+                    <div class="tool-info-card">
+                        <h3><i class="fas fa-image"></i> PDF to JPG</h3>
+                        <p>Convert PDF pages to JPG images.</p>
+                        <ul>
+                            <li>High-resolution output</li>
+                            <li>Convert all or selected pages</li>
+                            <li>Batch processing</li>
+                            <li>Quality settings</li>
+                        </ul>
+                    </div>
+                    <div class="tool-info-card">
+                        <h3><i class="fas fa-file-word"></i> PDF to WORD</h3>
+                        <p>Convert PDF files to editable Word documents.</p>
+                        <ul>
+                            <li>Maintains text formatting</li>
+                            <li>Preserves images and tables</li>
+                            <li>Editable output</li>
+                            <li>Fast conversion</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Edit PDF Tools -->
+                <div class="tool-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-edit"></i>
+                        Edit PDF Tools
+                    </h2>
+                    <div class="tool-info-card">
+                        <h3><i class="fas fa-redo"></i> Rotate PDF</h3>
+                        <p>Rotate PDF pages to any angle.</p>
+                        <ul>
+                            <li>90° rotation options</li>
+                            <li>Batch page rotation</li>
+                            <li>Preview changes</li>
+                            <li>Save custom orientations</li>
+                        </ul>
+                    </div>
+                    <div class="tool-info-card">
+                        <h3><i class="fas fa-tint"></i> Add Watermark</h3>
+                        <p>Add text or image watermarks to PDF files.</p>
+                        <ul>
+                            <li>Custom text watermarks</li>
+                            <li>Image watermarks</li>
+                            <li>Adjustable opacity</li>
+                            <li>Position control</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Additional Tools -->
+                <div class="tool-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-tools"></i>
+                        Additional Tools
+                    </h2>
+                    <div class="tool-info-card">
+                        <h3><i class="fas fa-compress-arrows-alt"></i> Compress PDF</h3>
+                        <p>Reduce PDF file size while maintaining quality.</p>
+                        <ul>
+                            <li>Multiple compression levels</li>
+                            <li>Quality preservation</li>
+                            <li>Batch compression</li>
+                            <li>Size preview</li>
+                        </ul>
+                    </div>
+                    <div class="tool-info-card">
+                        <h3><i class="fas fa-lock"></i> Protect PDF</h3>
+                        <p>Add password protection to PDF files.</p>
+                        <ul>
+                            <li>Password encryption</li>
+                            <li>Permission controls</li>
+                            <li>Secure encryption</li>
+                            <li>Custom restrictions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Page -->
+    <div id="featuresPage" style="display: none;">
+        <div class="page-header">
+            <h1>Features</h1>
+            <p>Discover what makes PDF Master the best choice for your PDF needs</p>
+        </div>
+
+        <div class="features-container" style="max-width: 1200px; margin: 3rem auto; padding: 0 2rem;">
+            <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="feature-card">
+                    <i class="fas fa-bolt feature-icon"></i>
+                    <h3>Fast Processing</h3>
+                    <p>Lightning-fast PDF processing with our optimized algorithms</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3>Secure & Private</h3>
+                    <p>Your files are processed locally and never uploaded to any server</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-desktop feature-icon"></i>
+                    <h3>Cross-Platform</h3>
+                    <p>Works on all devices and browsers with no installation required</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-magic feature-icon"></i>
+                    <h3>Easy to Use</h3>
+                    <p>Intuitive interface makes PDF manipulation a breeze</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-file-alt feature-icon"></i>
+                    <h3>Multiple Formats</h3>
+                    <p>Support for various file formats and conversion options</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-paint-brush feature-icon"></i>
+                    <h3>Modern Design</h3>
+                    <p>Clean and responsive interface with dark mode support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="aboutPage" style="display: none;">
+        <div class="page-header">
+            <h1>About PDF Master</h1>
+            <p>Your trusted companion for all PDF-related tasks</p>
+        </div>
+
+        <div class="about-container" style="max-width: 1000px; margin: 3rem auto; padding: 0 2rem;">
+            <div class="about-content">
+                <div class="about-section">
+                    <h2><i class="fas fa-star"></i> Our Mission</h2>
+                    <p>PDF Master aims to provide free, accessible, and powerful PDF tools to everyone. We believe in making document management simple and efficient.</p>
+                </div>
+
+                <div class="about-section">
+                    <h2><i class="fas fa-history"></i> Our Story</h2>
+                    <p>Started in 2025, PDF Master has grown from a simple PDF converter to a comprehensive suite of PDF tools, serving millions of users worldwide.</p>
+                </div>
+
+                <div class="about-section">
+                    <h2><i class="fas fa-users"></i> Our Team</h2>
+                    <p>We are a passionate team of developers and designers committed to creating the best PDF tools for our users.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contactPage" style="display: none;">
+        <div class="page-header">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team</p>
+        </div>
+
+        <div class="contact-container" style="max-width: 800px; margin: 3rem auto; padding: 0 2rem;">
+            <div class="contact-form-container">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required placeholder="Your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required placeholder="Your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" required placeholder="Subject">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required placeholder="Your message" rows="5"></textarea>
+                    </div>
+
+                    <button type="submit" class="button">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="creator-credit">
+        <i class="fas fa-code"></i>
+        <span>Created by <a href="https://github.com/piyushkadam96k" target="_blank">@piyush_kadam96k</a></span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
